@@ -38,7 +38,7 @@ public class PageEvent {
         this.user = user;
     }
 
-    public Date getDate() {
+    public Date date() {
         return date;
     }
 
