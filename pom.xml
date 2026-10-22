@@ -130,6 +130,11 @@
                         </configuration>
                     </execution>
                 </executions>
+                <configuration>
+                    <source>5</source>
+                    <target>5</target>
+                    <compilerArgs>--enable-preview</compilerArgs>
+                </configuration>
             </plugin>
         </plugins>
     </build>
