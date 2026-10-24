@@ -36,7 +36,7 @@ public class PageEventHandler {
                     Math.random()> 0.5 ? "P1" : "P2",
                     Math.random()> 0.5 ? "U1" : "U2",
                     new Date(),
-                    10 + new Random().nextInt(10000)
+                    10L + new Random().nextInt(10000)
             );
         };
     }
