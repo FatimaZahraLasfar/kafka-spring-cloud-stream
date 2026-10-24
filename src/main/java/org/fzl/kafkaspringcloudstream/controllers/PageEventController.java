@@ -18,7 +18,7 @@ public class PageEventController {
         PageEvent event = new PageEvent(
                 name,
                 Math.random() > 0.5? "U1":"U2",
-                new Date(),10+new Random().nextInt(100000));
+                new Date(),10L+new Random().nextInt(100000));
         streamBridge.send(topic,event);
         return event;
     }
