@@ -44,16 +44,12 @@ public class PageEventHandler {
     public Function<KStream<String, PageEvent>, KStream<String, Long>> kStreamFunction(){
         return (input)->
                 input
+                        .filter((k, v) -> v.duration() != null && v.duration() > 100)
                         .map((k,v)->new KeyValue<>(v.name(), v.duration()))
-                        .groupByKey(Grouped.with(Serdes.String(), Serdes.Long()))
-                        .windowedBy(TimeWindows.ofSizeWithNoGrace(Duration.ofSeconds(5)))
+                        .groupByKey(Grouped.with(Serdes.String(),Serdes.Long()))
+                        .windowedBy(TimeWindows.ofSizeWithNoGrace(Duration.ofSeconds(5000)))
                         .count(Materialized.as("count-store"))
                         .toStream()
-                        .peek((k,v)->{
-                            System.out.println("=======>  "+ k.key());
-                            System.out.println("=======>  "+v);
-                        })
-                        .map((k,v)->new KeyValue<>(k.key(), v))
-                ;
+                        .map((k,v) ->new KeyValue<>(k.key(),v));
     }
 }
