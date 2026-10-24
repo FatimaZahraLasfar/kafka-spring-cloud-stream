@@ -22,11 +22,11 @@ public class PageEvent {
     }
 
     // 3. Les Getters et Setters (INDISPENSABLES pour la conversion JSON <-> Objet)
-    public String getName() {
+    public String name() {
         return name;
     }
 
-    public void setName(String name) {
+    public void name(String name) {
         this.name = name;
     }
 
@@ -46,11 +46,11 @@ public class PageEvent {
         this.date = date;
     }
 
-    public long getDuration() {
+    public long duration() {
         return duration;
     }
 
-    public void setDuration(long duration) {
+    public void duration(long duration) {
         this.duration = duration;
     }
 }
