@@ -13,6 +13,8 @@ import java.util.Random;
 public class PageEventController {
     @Autowired
     private StreamBridge streamBridge ;
+    @Autowired
+    private InteractiveQueryService interactiveQueryService;
     @GetMapping("/publish")
     public PageEvent publish(String name, String topic){
         PageEvent event = new PageEvent(
